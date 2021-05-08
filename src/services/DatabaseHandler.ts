@@ -1,7 +1,8 @@
 
+import { ArticlesRead, ArticlesReadResponse} from '../types/interfaces'
 // I have called this database for all intent and purpose it could be firestore
 export class DatabaseHandler {
-    public async getUserArticleRead(userId: string) {
+    public async getUserArticleRead(userId: string): Promise<ArticlesRead> {
         try {
             return this.fakeDatabaseResponse(userId);
         } catch(error) {
@@ -10,7 +11,7 @@ export class DatabaseHandler {
         }
     }
 
-    public fakeDatabaseResponse(userId: string) {
+    public fakeDatabaseResponse(userId: string): ArticlesRead {
         // Not a correct db structure but for simplicity
         const fakeResponse: any = {
             "user1": {
@@ -35,6 +36,6 @@ export class DatabaseHandler {
                 "articles": []
             }
         }
-        return fakeResponse[userId];
+        return fakeResponse[userId] as ArticlesRead;
     }
 }
