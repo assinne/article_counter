@@ -1,4 +1,4 @@
-// this shim is required
+import "reflect-metadata";
 import { createExpressServer } from 'routing-controllers';
 import { UserController } from './controllers/UserController';
 
@@ -7,5 +7,5 @@ const app = createExpressServer({
   controllers: [UserController], // we specify controllers we want to use
 });
 
-// run express application on port 3000
+console.log("Starting Server on port 3000")
 app.listen(3000);
