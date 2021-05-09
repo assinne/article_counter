@@ -2,7 +2,7 @@ import { Controller, Param, Get, OnUndefined} from 'routing-controllers';
 import { UserModel } from '../models/UserModel';
 @Controller()
 export class UserController {
-    private userModel;
+    private userModel: UserModel;
     constructor() {
         this.userModel = new UserModel();
     }
